@@ -10,7 +10,7 @@
 //   anemll-profile model.mlpackage
 //   anemll-profile /path/to/model    # auto-finds .mlmodelc or .mlpackage
 //
-#define VERSION "0.3.1"
+#define VERSION "0.3.2"
 
 #import <Foundation/Foundation.h>
 #import <CoreML/CoreML.h>
@@ -237,14 +237,15 @@ int main(int argc, char *argv[]) {
         }
 
         if (!modelArg) {
-            fprintf(stderr, "Usage: anemll-profile [options] <model_path>\n\n");
-            fprintf(stderr, "  Profiles CoreML models via MLComputePlan + Espresso CostModel.\n");
-            fprintf(stderr, "  Accepts .mlmodelc, .mlpackage, or base path (auto-detects).\n\n");
-            fprintf(stderr, "  Options:\n");
-            fprintf(stderr, "    -v, --version   Show version and exit\n");
-            fprintf(stderr, "    -c, --cpu-ane   CPU + ANE (default)\n");
-            fprintf(stderr, "    -a, --all       All devices incl. GPU\n\n");
-            fprintf(stderr, "  Run: ./anemll-profile <model>\n");
+            fprintf(stderr, "Usage:\n");
+            fprintf(stderr, "  anemll-profile model.mlpackage\n");
+            fprintf(stderr, "  anemll-profile model.mlmodelc\n");
+            fprintf(stderr, "  anemll-profile /path/to/model          # auto-detects .mlmodelc or .mlpackage\n");
+            fprintf(stderr, "  anemll-profile -a model.mlpackage      # include GPU in device assignment\n\n");
+            fprintf(stderr, "Options:\n");
+            fprintf(stderr, "  -v, --version   Show version and exit\n");
+            fprintf(stderr, "  -c, --cpu-ane   CPU + ANE (default)\n");
+            fprintf(stderr, "  -a, --all       All devices incl. GPU\n");
             return 1;
         }
 
