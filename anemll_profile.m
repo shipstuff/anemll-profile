@@ -133,6 +133,8 @@ static void startLogCapture(void) {
         [NSString stringWithFormat:@"anemll-profile_%d.log", getpid()]];
     g_logPID = fork();
     if (g_logPID == 0) {
+        // Ensure private log data is visible in child too
+        setenv("OS_ACTIVITY_DT_MODE", "YES", 1);
         freopen([g_logPath UTF8String], "w", stdout);
         freopen("/dev/null", "w", stderr);
         execlp("/usr/bin/log", "log", "stream",
@@ -193,8 +195,8 @@ int main(int argc, char *argv[]) {
     @autoreleasepool {
         setbuf(stdout, NULL);
 
-        // Ensure private log data is revealed in forked log stream subprocess
-        setenv("OS_ACTIVITY_DT_MODE", "YES", 0); // 0 = don't overwrite if already set
+        // Ensure private log data is revealed (must be set before MLComputePlan loads Espresso)
+        setenv("OS_ACTIVITY_DT_MODE", "YES", 1); // 1 = overwrite even if already set
 
         // Parse flags
         MLComputeUnits computeUnits = MLComputeUnitsCPUAndNeuralEngine;
