@@ -1,0 +1,13 @@
+# Build output
+anemll-profile
+*.o
+*.dSYM/
+
+# macOS
+.DS_Store
+
+# IDE
+.vscode/
+.idea/
+*.xcodeproj/
+*.xcworkspace/
