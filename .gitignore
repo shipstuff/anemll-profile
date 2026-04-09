@@ -11,3 +11,7 @@ anemll-profile
 .idea/
 *.xcodeproj/
 *.xcworkspace/
+.claude/
+
+# Local source art
+assets/anemll-robot.png
