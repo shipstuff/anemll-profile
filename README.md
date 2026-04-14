@@ -18,9 +18,8 @@ between the two reveal optimization opportunities.
 
 For a compact agent-oriented workflow, see [AGENTS.md](./AGENTS.md).
 
-> This is [shipstuff's fork](https://github.com/shipstuff/anemll-profile) of
-> [Anemll/anemll-profile](https://github.com/Anemll/anemll-profile) with
-> [`ane-costplan`](./ane_costplan.swift) added.
+> This fork adds [`ane-costplan`](./ane_costplan.swift) — a compile-time cost
+> analyzer using Apple's `MLComputePlan` API.
 
 ## Install
 
@@ -40,9 +39,8 @@ anemll-profile --version
 ane-costplan --help 2>&1 | head -3
 ```
 
-> Upstream has a homebrew tap (`brew install anemll/tap/anemll-profile`) that
-> installs `anemll-profile` only — it will not install `ane-costplan`. Build
-> from source above to get both tools.
+Build from source is the only way to get both tools together. (Upstream
+homebrew tap installs `anemll-profile` only.)
 
 ## Usage
 

@@ -20,8 +20,8 @@ anemll-profile --version
 ane-costplan --help 2>&1 | head -3
 ```
 
-> Note: the upstream homebrew tap installs `anemll-profile` only (no
-> `ane-costplan`). Build from source to get both tools.
+Build from source gets both tools. (Upstream homebrew tap installs
+`anemll-profile` only.)
 
 ## Dependencies
 
